@@ -1,4 +1,4 @@
-* {
+/* * {
   box-sizing: border-box;
 }
 
@@ -11,6 +11,10 @@ body {
   color: #212121;
   line-height: 1.5;
   margin: 0;
+}
+
+ul {
+  list-style: none;
 }
 
 header {
@@ -70,3 +74,31 @@ header {
   fill: #3b5998;
   
 }
+
+.load-more {
+  font-size: 15px;
+  cursor: pointer;
+  background-color: #3b5998;
+  color: #fafafa;
+  width: 150px;
+  height: 50px;
+  border-radius: 4px;
+  border: none;
+  margin-top: 20px;
+} */
+
+/* .load-more:hover, 
+.load-more:focus {
+  background-color:darkgrey;
+} */
+
+/* .gallery-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+} */

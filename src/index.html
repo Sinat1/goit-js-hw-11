@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Homework 10</title>
+    <title>Homework 11</title>
   </head>
   <body>
 
@@ -12,7 +12,7 @@
       <form class="search-form" id="search-form">
         <input class="search-form__input"type="text" name="searchQuery" autocomplete="off" placeholder="Search images..." />
         <button class="search-form__btn" type="submit">
-          <svg class="loupe-icon"  width="30" height="30">
+          <svg class="loupe-icon"  width="40" height="40">
             <use href="./images/sprite.svg#icon-search"></use>
           </svg>
         </button>
@@ -20,8 +20,10 @@
     </header>
 
     <main>
-      <div class="gallery">
+      <div class="gallery-container">
+        <ul class="gallery"></ul>
       </div>
+      <div class="load-more-div"><button type="button" class="load-more">Load more</button></div>
     </main>
 
     <script src="index.js" type="module"></script>
