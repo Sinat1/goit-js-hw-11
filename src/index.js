@@ -20,24 +20,23 @@ let lightbox = new SimpleLightbox('.gallery a', {
 let searchQuery = '';
 let page = 1;
 
-function showSuccessNotification({ data: { totalHits } }) {
-  Notiflix.Notify.success(`Hooray! We found ${totalHits} images.`);
-}
-
 async function onFormSubmit(event) {
   event.preventDefault();
 
-  refs.galleryList.innerHTML = '';
+  if (searchQuery && searchQuery === event.currentTarget.elements[0].value) {
+    Notiflix.Notify.warning('Current search request is already displayed');
+    return;
+  }
+  searchQuery = event.currentTarget.elements.searchQuery.value.trim();
   refs.loadMoreBtn.style.visibility = 'hidden';
 
-  searchQuery = event.currentTarget.elements.searchQuery.value;
-  page = 1;
   if (!searchQuery) {
     Notiflix.Notify.warning('Please type something');
     return;
   }
 
   const imagesResponse = await fetchImages(searchQuery, page);
+
   if (!imagesResponse.data.hits.length) {
     refs.loadMoreBtn.style.visibility = 'hidden';
     Notiflix.Notify.failure(
@@ -45,9 +44,14 @@ async function onFormSubmit(event) {
     );
     return;
   }
+  page = 1;
+  refs.galleryList.innerHTML = '';
+
   if (imagesResponse) {
     appendImagesMarkup(imagesResponse);
-    showSuccessNotification(imagesResponse);
+    Notiflix.Notify.success(
+      `Hooray! We found ${imagesResponse.data.totalHits} images.`
+    );
     refs.loadMoreBtn.style.visibility = 'visible';
   }
 

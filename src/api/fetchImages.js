@@ -1,4 +1,5 @@
 import axios from "axios";
+import Notiflix from "notiflix";
 
 const BASE_ULR = 'https://pixabay.com/api/';
 const API_KEY = '29611226-20562b3ecebd93b134dc5359f';
@@ -19,7 +20,7 @@ export async function fetchImages(q, page) {
                 }
             });
     } catch (error) {
-        console.log(error);
+        Notiflix.Notify.failure('Error occured');
     }
     
 }
